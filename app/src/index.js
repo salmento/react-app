@@ -1,17 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const BookList = () => {
+  return (
+      <section> 
+        <Book/>
+      </section>
+  )
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Book = () => {  
+  return (
+    <article>
+      <Image/>
+      <Title/>
+      <Author/>
+    </article>
+  );
+}
+
+const Image = () => <img 
+  src="https://images-na.ssl-images-amazon.com/images/I/51QyOJtK0xS._SX322_BO1,204,203,200_.jpg" 
+  alt = ""/>
+
+const Author = () =>  <h1> Mark R. Levin </h1>
+
+const Title = () => <h1> American Marxism Hardcover  </h1>
+
+ReactDom.render(<BookList/>, document.getElementById('root'));
+
+
