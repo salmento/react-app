@@ -1,24 +1,29 @@
-import React, { useState }from 'react';
-
+import React, { useState } from 'react';
+import { data } from '../../../data';
 
 
 const Example = () => {
-  
-  const [text, setText] = useState('random title');
 
-  const handleClick = () => {
-    if (text === 'random title') {
-      setText('Hello world');
-    } else {
-      setText('random title');
-    }
+  const [people, setPeople] = useState(data);
+
+  const removeItem = (id) => {
+    const newData = people.filter(person => person.id !== id);
+    setPeople(newData);
   };
   return (
-    <React.Fragment>
-      <h2>{text}</h2>
-      <button type='button' className='btn' onClick={handleClick}>Change titlle</button>
-    </React.Fragment>
-
+    <>
+      {people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div className="item" key={id}>
+            <h2>{name}</h2>
+            <button type='button' className='btn' onClick={() =>removeItem(id)}>Remover</button>
+          </div>
+        );
+      })
+      }
+      <button className='btn' onClick={() => setPeople([])}>Clear Items</button>
+    </>
   )
 };
 
