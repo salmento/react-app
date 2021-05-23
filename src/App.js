@@ -1,5 +1,5 @@
 import React from 'react'
-import Error from './tutorial/1-useState/setup/5-useState-counter';
+import Error from './tutorial/2-useEffect/final/2-useEffect-cleanup';
 
 function App() {
   return (
